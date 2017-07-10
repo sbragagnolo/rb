@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "RBTestLoadCartTestCase",
+	"category" : "RedBubble-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "RBTestLoadCartSourceProperties",
+	"type" : "normal"
+}

@@ -1,0 +1,1 @@
+Product object. It has some properties. 

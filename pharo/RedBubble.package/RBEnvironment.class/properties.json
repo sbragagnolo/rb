@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/8/2017 05:27",
+	"super" : "Object",
+	"category" : "RedBubble-Domain",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"products"
+	],
+	"name" : "RBEnvironment",
+	"type" : "normal"
+}

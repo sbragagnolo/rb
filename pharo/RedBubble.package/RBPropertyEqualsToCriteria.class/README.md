@@ -1,0 +1,1 @@
+The contains criteria allows to configure a value.   And the criteria matches, if the property  is equals to the given value. 

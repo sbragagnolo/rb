@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/7/2017 09:24",
+	"super" : "TestCase",
+	"category" : "RedBubble-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rawproducts"
+	],
+	"name" : "RBTestLoadProductsTestCase",
+	"type" : "normal"
+}

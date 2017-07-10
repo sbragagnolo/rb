@@ -1,0 +1,1 @@
+Abstrac test. It only loads a JSON input 

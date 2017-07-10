@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/8/2017 04:56",
+	"super" : "RBPropertyCriteria",
+	"category" : "RedBubble-Criteria",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"value"
+	],
+	"name" : "RBPropertyValueCriteria",
+	"type" : "normal"
+}

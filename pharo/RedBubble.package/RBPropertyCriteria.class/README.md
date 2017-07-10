@@ -1,0 +1,1 @@
+A property criteria is a criteria that can be configured with the name of a property, and ask to it to fetch this property from a given product. 

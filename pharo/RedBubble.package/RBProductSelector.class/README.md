@@ -1,0 +1,1 @@
+The product selector is a composition of properties criterias . that responds to match when the selector's criterias meet their matching needs. 

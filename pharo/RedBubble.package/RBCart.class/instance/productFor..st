@@ -1,0 +1,3 @@
+as yet unclassified
+productFor: aRBProductSelector
+	^ environment findStrictlyOneProductThatMatches: aRBProductSelector

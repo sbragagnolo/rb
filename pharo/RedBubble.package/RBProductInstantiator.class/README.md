@@ -1,0 +1,1 @@
+Class in charge of product object building 

@@ -1,0 +1,1 @@
+It represents an entry item in a cart. 

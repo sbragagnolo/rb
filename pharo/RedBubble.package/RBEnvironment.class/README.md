@@ -1,0 +1,1 @@
+An environment is there to define general datasources, allowing to access different kinds (so far products), hiding the access to the data, giving an extention point to multiple kind of data streams.  

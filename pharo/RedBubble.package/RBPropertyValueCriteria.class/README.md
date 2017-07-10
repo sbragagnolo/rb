@@ -1,0 +1,1 @@
+RBPropertyValueCriteria only adds the configuration of a value. It implies that the criteria will do some kind of configurable comparision 

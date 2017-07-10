@@ -1,0 +1,1 @@
+This criteria is for optional values. It's equivalent to the nocion of Null object. 

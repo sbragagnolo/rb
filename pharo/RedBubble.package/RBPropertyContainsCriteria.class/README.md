@@ -1,0 +1,1 @@
+The contains criteria allows to configure a value. As well it implies that the given property is a collection.  And the criteria matches, if the property collection contains the given value. 

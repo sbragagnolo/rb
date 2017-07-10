@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/8/2017 05:25",
+	"super" : "Object",
+	"category" : "RedBubble-Domain",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"items",
+		"environment"
+	],
+	"name" : "RBCart",
+	"type" : "normal"
+}
