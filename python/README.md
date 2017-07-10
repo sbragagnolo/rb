@@ -35,6 +35,7 @@ for running with some errors, you can use the badly defined products files
 
 
 Or using wrong parameters
+
 		cd python
 		python cmd.py 
 		python cmd.py -p no/valid/path -c other/no/valid/path
