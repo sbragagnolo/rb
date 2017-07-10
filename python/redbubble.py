@@ -250,6 +250,8 @@ class Environment(object):
         return [ x for x in self.products if (criteria.matches(x))]
     def findStrictlyOneProductThatMatches(self, criteria):
         result = self.findAllProductsThatMatches(criteria)
-        if( len(result) != 1):
-            raise Exception('Only one product should match the given criteria')
+        if( len(result) == 0):
+            raise Exception('There is no available product for %s ' % criteria)
+        if ( len(result) > 1 ):
+            raise Exception('There are multiple products for %s ' % criteria)
         return result[0]
