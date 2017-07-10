@@ -1,7 +1,7 @@
 # rb
 RB Interview. 
 Multiple implementations.
-
+[![Build Status](https://travis-ci.org/sbragagnolo/rb.svg?branch=master)](https://travis-ci.org/sbragagnolo/rb)
 
 # Requirements
 
