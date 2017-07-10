@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "SantiagoBragagnolo 7/10/2017 02:21",
+	"super" : "BaselineOf",
+	"category" : "BaselineOfRedBubble",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BaselineOfRedBubble",
+	"type" : "normal"
+}
