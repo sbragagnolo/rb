@@ -18,7 +18,7 @@ The pharo version does not implement command line interface. Is only a library m
 For running the tests from command line:
 	
 	cd build
-	./pharo-ui Pharo test --no-xterm --fail-on-failure "RedBubble.*"
+	./pharo Pharo test --no-xterm --fail-on-failure "RedBubble.*"
 
 
 For running the tests graphic mode open the pharo image:
