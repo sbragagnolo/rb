@@ -34,7 +34,7 @@ Important notes:
 # Possible Designs
 
 
-##Design 1: 
+## Design 1: 
 	
 Products and item as first citizen. Each object has well known static properties: Easier to debug, predictable behaviour. Easy to test.
 The product description is spawned as a selector, an object capable to understand if it matches with a given product.
@@ -43,7 +43,7 @@ The items know their cart. A cart works as a scope for looking up products.
 The cart inside an environment, to fetch products as well and to solve non-functional technical problems as configuration.
 
 
-##Design 2: 
+## Design 2: 
 
 Products and item as first citizen. Each object has dynamic properties: Harder to debug or predict. Needs exahustive testing for unexepected cases.
 The product description is spawned as a selector, an object capable to understand if it matches with a given product.
@@ -53,7 +53,7 @@ The cart inside an environment, to fetch products as well and to solve non-funct
 
 
 
-##Design 3: 
+## Design 3: 
 	
 Products and item as dictionary (hashed tables) or basic dto json wobjects. Each object has dynamic properties: Harder to debug or predict. 
 Needs exahustive testing for unexepected cases.
@@ -63,12 +63,12 @@ All the coding API is implemented at the level of the execution environment, whe
 
 # Chosen design
 	
-	Since the first language used for this development was Pharo, language that provides a powerful TDD interface, in order to have a dynamic approach for the prototyping, I took the first proposed design. 
+Since the first language used for this development was Pharo, language that provides a powerful TDD interface, in order to have a dynamic approach for the prototyping, I took the first proposed design. 
 	
-	With my current knowledge of the domain, there is not really a solution that is really better than the other two. For making a better decision I should have clear understanding of the system that uses the proposed excercise.
+With my current knowledge of the domain, there is not really a solution that is really better than the other two. For making a better decision I should have clear understanding of the system that uses the proposed excercise.
 	
 
-#Architecture 
+# Architecture 
 
 ## Architecture - library
 Provide a simple controler-like object (facade), with a minimal API based on the requirements: given two files, calculate the price of the cart. 
