@@ -9,7 +9,7 @@ Before building, ensure you dependencies for pharo on pharo.org
 
 	git clone git@github.com:sbragagnolo/rb.git
 	cd rb
-	./build.sh
+	./pharo-build.sh
 
 # Running
 	
