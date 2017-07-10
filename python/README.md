@@ -31,7 +31,7 @@ for running with some errors, you can use the badly defined products files
 
 		cd python
 		python cmd.py -p ../files/products-no-white-small-hoodie.json -c ../files/cart-9500.json
-		python cmd.py -p ../files/products-multiple-white-small-hoodie.json -c ../files/cart-9500.json
+		python cmd.py -p ../files/products-double-white-small-hoodie.json -c ../files/cart-9500.json
 
 
 Or using wrong parameters
