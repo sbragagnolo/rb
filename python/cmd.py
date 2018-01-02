@@ -2,6 +2,7 @@ import sys, getopt
 import redbubble
 import json
 
+DEFAULT_COUNTRY = 'Australia'
 """
     CommandHandler object is in charge of defining a adaption in between that command line code and the library.
     As error handler it defines a a method that only prints the error and exits.
@@ -26,11 +27,19 @@ class CommandHandler(object):
         with open(products_file) as data:
             products = [ instantiator.instantiate(p) for p in json.load(data)]
         return redbubble.Environment(products)
+
+    def country(self, jsonObject):
+        if (jsonObject.has_key('country')):
+            return jsonObject['country']
+        return DEFAULT_COUNTRY
+
     def create_cart(self, cart_file):
         cart = redbubble.Cart(self.environment)
         instantiator = redbubble.ItemInstantiator()
         with open(cart_file) as data:
-            items = [ cart.add_item(instantiator.instantiate(p)) for p in json.load(data)]
+            jsonCart = json.load(data)
+            cart.country = self.country(jsonCart)
+            items = [ cart.add_item(instantiator.instantiate(p)) for p in jsonCart['items']]
         return cart
 
     def do_apply (self):

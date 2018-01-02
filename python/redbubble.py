@@ -16,6 +16,10 @@ class Product (object):
         self.colours = None
         self.type = None
         self.sizes = None
+    def priceFor(self, country):
+        return self.base_price[country]
+
+
     def __repr__(self):
         return "<Product type:%s colours:%s sizes:%s>" % (self.type, self.colours, self.sizes)
 
@@ -30,7 +34,7 @@ class CartItem(object):
     def product(self):
         return self.cart.productFor(self.selector)
     def unit_price(self):
-        base = self.product().base_price
+        base = self.product().priceFor(self.cart.country)
         return base + round(base * self.artist_markup / 100)
     def price(self):
         return self.unit_price() * self.quantity
@@ -45,6 +49,7 @@ class Cart(object):
         super(Cart, self).__init__()
         self.items = []
         self.environment = environment
+        self.country = None
     def add_item(self, item):
         item.cart = self
         self.items.append(item)
@@ -91,6 +96,7 @@ class ProductInstantiator(Instantiator):
         product.type = self.fetchProductTypeFrom (jsonObject)
         product.sizes = self.fetchSizesFrom (jsonObject)
         product.print_locations = self.fetchPrintLocations (jsonObject)
+        product.genders = self.fetchGendersFrom (jsonObject)
         return product
     def __fetchKeyOrDefault(self, jsonObject, key, default, extractor = lambda x: x):
         if(jsonObject.has_key(key)):
@@ -98,17 +104,25 @@ class ProductInstantiator(Instantiator):
         else:
             return default()
 
+    def normalizePrice(self, price):
+        if(type(price) == dict):
+            return price
+        else:
+            return {'Australia' : price, 'Non-Australia': price}
 
     def fetchBasePriceFrom(self, jsonObject):
-        return self.__fetchKeyOrDefault(jsonObject, 'base-price', lambda: raiseException(Exception("Base price not found")) )
+        return self.__fetchKeyOrDefault(jsonObject, 'base-price', lambda: raiseException(Exception("Base price not found")), lambda price: self.normalizePrice(price)  )
     def fetchColoursFrom(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject['options'], 'colour', lambda: [] )
+    def fetchGendersFrom(self, jsonObject):
+        return self.__fetchKeyOrDefault(jsonObject['options'], 'gender', lambda: [] )
     def fetchProductTypeFrom(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject, 'product-type', lambda: raiseException(Exception("Product type not found")) )
     def fetchSizesFrom(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject['options'], 'size', lambda: [] )
     def fetchPrintLocations(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject['options'], 'print-location', lambda: [])
+
 
 
 
@@ -143,10 +157,13 @@ class ItemInstantiator(Instantiator):
         selector.print_location = self.fetchPrintLocation(jsonObject)
         selector.size = self.fetchSize(jsonObject)
         selector.type = self.fetchProductType(jsonObject)
+        selector.gender = self.fetchGender(jsonObject)
         return selector
 
     def fetchColour(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject['options'], 'colour', lambda: AlwaysTrueCriteria(), lambda value: ContainsCriteria('colours',value))
+    def fetchGender(self, jsonObject):
+        return self.__fetchKeyOrDefault(jsonObject['options'], 'gender', lambda: AlwaysTrueCriteria(), lambda value: ContainsCriteria('genders',value))
     def fetchPrintLocation(self, jsonObject):
         return self.__fetchKeyOrDefault(jsonObject['options'], 'print-location', lambda: AlwaysTrueCriteria(), lambda value: ContainsCriteria('print_locations', value, True) )
     def fetchSize(self, jsonObject):
@@ -235,10 +252,11 @@ class ProductSelector(object):
         self.colour = ErrorCriteria()
         self.size = ErrorCriteria()
         self.print_location = ErrorCriteria()
+        self.gender = ErrorCriteria()
     def matches(self, product):
-        return reduce (lambda acc, value: acc and value.matches(product), [self.type , self.colour, self.size, self.print_location ], True)
+        return reduce (lambda acc, value: acc and value.matches(product), [self.type , self.colour, self.size, self.print_location, self.gender ], True)
     def __repr__(self):
-        return "<ProductSelector type:%s colour:%s size:%s print_location:%s >" % (self.type.value, self.colour, self.size.value, self.print_location)
+        return "<ProductSelector type:%s colour:%s size:%s print_location:%s gender:%s>" % (self.type.value, self.colour, self.size.value, self.print_location, self.gender)
 
 
 class Environment(object):

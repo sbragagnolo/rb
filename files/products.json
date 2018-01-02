@@ -1,4 +1,14 @@
 [
+  
+  {
+    "product-type": "hoodie",
+    "options": {
+      "colour": ["white", "dark"],
+      "size": ["small", "medium"],
+      "gender": ["M", "F"]
+    },
+    "base-price": {"Australia" : 123409812409183500, "Non-Australia": 14352352235}
+  },
   {
     "product-type": "hoodie",
     "options": {
